@@ -17,7 +17,7 @@ end AttackTable;
 
 architecture RTL of AttackTable is 
 
-  type AR_ADJUST_ARRAY is array (addr'range) of DB_TYPE;
+  type AR_ADJUST_ARRAY is array (0 to 2 ** (DB_TYPE'high+1) - 1) of DB_TYPE;
   constant ar_adjust : AR_ADJUST_ARRAY :=(
     "1111111","1111111","1101100","1100010","1011010","1010100","1010000","1001011",
     "1001000","1000101","1000010","1000000","0111101","0111011","0111001","0111000",
@@ -41,7 +41,7 @@ begin
   process (clk)
   begin  
     if clk'event and clk = '1' then    
-      data <= ar_adjust(addr'high - addr);
+      data <= ar_adjust(2 ** (DB_TYPE'high+1) - 1 - addr);
     end if;        
   end process;
 end RTL;

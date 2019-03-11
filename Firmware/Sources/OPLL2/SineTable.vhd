@@ -23,7 +23,7 @@ end SineTable;
 
 architecture RTL of SineTable is
 
-  constant TABLE_WIDTH : integer := (addr'high-addr'low+1)/4;
+  constant TABLE_WIDTH : integer := (2 ** (PGOUT_TYPE'high+1))/4;
   type sin_type is array (0 to TABLE_WIDTH-1) of DB_TYPE;  
   constant sin_data : sin_type := (
     "1111111","1100101","1010101","1001100",

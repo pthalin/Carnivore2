@@ -20,7 +20,7 @@ architecture RTL of RegisterMemory is
 
   -- **SKBLK<FNUMBER><AT><VO> 
   --"000000000000000000000000"
-  type REGS_ARRAY_TYPE is array (CH_TYPE'range) of REGS_VECTOR_TYPE;
+  type REGS_ARRAY_TYPE is array (0 to MAXCH-1) of REGS_VECTOR_TYPE;
   signal rarray : REGS_ARRAY_TYPE;
   
 begin

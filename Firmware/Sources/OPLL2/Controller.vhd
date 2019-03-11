@@ -74,7 +74,7 @@ end Controller;
 architecture RTL of Controller is
 
   -- The array which caches instrument number of each channel.
-  type INST_ARRAY is array (CH_TYPE'range) of integer range 0 to 15;
+  type INST_ARRAY is array (0 to MAXCH-1) of integer range 0 to 15;
   signal inst_cache : INST_ARRAY;
 
   type KL_ARRAY is array (0 to 15) of std_logic_vector(5 downto 0);
